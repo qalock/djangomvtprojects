@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+
+{%extends 'myapp/base.html'%}
+
+{%block body_block%}
+<div class="container">
+    <section>
+        <p class="h1 text-center text-secondary">Products</p>
+        <div class="row">
+            <div class="col-md-8">
+                <a href="{%url 'add'%}" class="btn btn-primary">ADD</a>
+            </div>
+            <div class="col-md-4">
+                <input type="text" placeholder="Search" class="form-control">
+            </div>
+        </div>
+    </section>
+    <section>
+        {%if prodlist%}
+            <table class="table table-bordered table-striped table-hover text-center">
+                <thead class="bg-primary text-white">
+                    <tr> 
+                        <th>Product ID</th>
+                        <th>Product Name</th>
+                        <th>Product Price</th>
+                        <th>Product Qunatity</th>
+                        <th>Total</th>
+                        <th>Actions</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                   {%for p in prodlist%}
+                        <tr>
+                            <td>{{p.product_id}}</td>
+                            <td>{{p.product_name}}</td>
+                            <td>{{p.product_price}}</td>
+                            <td>{{p.product_quant}}</td>
+                            <td></td>
+                            <td>
+                                <a href="{%url 'show' p.id%}" class="fa fa-eye text-primary mr-3"></a>
+                                <a href="{%url 'edit' p.id%}" class="fa fa-pencil text-success mr-3"></a>
+                                <a href="{%url 'delete' p.id%}" class="fa fa-trash text-danger "></a>
+                            </td>
+
+                        </tr>
+                   {%endfor%}
+                </tbody>
+            </table>
+        {%else%}
+            <p class="h2 text-center text-danger">Record Not Found</p>
+        {%endif%}
+    </section>
+
+</div>
+{%endblock%}

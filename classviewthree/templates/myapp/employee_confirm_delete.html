@@ -1,0 +1,36 @@
+{%extends 'myapp/base.html'%}
+
+{%block body%}
+<form action="" method="post">
+    {%csrf_token%}
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-5">
+            <div class="card">
+                <div class="card-header bg-danger text-white">
+                    <h1 class="text-center">Employee Detail</h1>
+                </div>
+                <div class="card-body">
+                    <table class="table table-bordered table-striped table-hover">
+                        <tr>
+                            <th class="bg-light">Employee ID</th>
+                            <td>{{employee.EmpId}}</td>
+                        </tr>
+                        <tr>
+                            <th class="bg-light">Employee Name</th>
+                            <td>{{employee.EmpName}}</td>
+                        </tr>
+                        <tr>
+                            <th class="bg-light">Employee Salary</th>
+                            <td> &#8377 {{employee.EmpSal}}</td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="card-footer text-center">
+                    <button type="submit" class="btn btn-outline-danger">Delete</button>
+                    <a href="/" class="btn btn-outline-info">Home</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+{%endblock%}

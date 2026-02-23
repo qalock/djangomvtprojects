@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+
+{%extends 'imageapp/base.html'%}
+{%load static%}
+
+{%block body_block%}
+<div class="container">
+    <section>
+        <div class="row">
+            <div class="col-md-8">
+                <a href="{%url 'add'%}" class="btn btn-info">ADD</a>
+                <a href="{%url 'prodlist'%}" class="btn btn-info">Home</a>
+            </div>
+            <div class="col-md-4">
+                <form action="" method="get">
+                    <input type="search" name="q" value="{{request.GET.q}}" placeholder="Search By Id or name" class="form-control float-right">
+                </form>
+            </div>
+        </div>
+
+    </section>
+    <section>
+        {%if prodlist%}
+            <table class="table table-bordered table-striped table-hover text-center">
+                <thead class="bg-info text-white">
+                    <tr>
+                        <th>Product Id</th>
+                        <th>Product Name</th>
+                        <th>Product Image</th>
+                        <th>Product Price</th>
+                        <th>Product qunatity</th>
+                        <th>Actions</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    {%for p in prodlist%}
+                        <tr>
+                            <td>{{p.id}}</td>
+                            <td>{{p.productname}}</td>
+                            <td>
+                                {%if p.productimage%}
+                                    <img src="{{p.productimage.url}}" alt="" height="100">
+                                {%else%}
+                                    <img src="" alt="no Image to be found">
+                                {%endif%}
+                            </td>
+                            <td>{{p.productprice}}</td>
+                            <td>{{p.productquantity}}</td>
+                            <td>
+                                <a href="{%url 'show' p.id%}"><i class="fa fa-eye text-success mr-3"></i></a>
+                                <a href="{%url 'edit' p.id%}"><i class="fa fa-pencil text-info mr-3"></i></a>
+                                <a href="{%url 'delete' p.id%}"><i class="fa fa-trash text-danger"></i></a>
+                            </td>
+                        </tr>
+                    {%endfor%}
+                </tbody>
+
+            </table>
+        {%else%}
+            <p class="h2 text-center">Record Not Found</p>
+        {%endif%}
+    </section>
+</div>
+
+{%endblock%}

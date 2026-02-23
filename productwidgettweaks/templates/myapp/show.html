@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+{%extends 'myapp/base.html'%}
+
+{%block body_block%}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-7">
+            <div class="card">
+                <div class="card-header bg-secondary text-white">
+                    <h4 class="text-center">Product Details</h4>
+                </div>
+                <div class="card-body">
+                    <table class="table table-bordered table-striped table-hover">
+                        <tr>
+                            <th class="bg-light">Product ID</th>
+                            <td>{{product.product_id}}</td>
+                        </tr>
+                        <tr>
+                            <th class="bg-light">Product Name</th>
+                            <td>{{product.product_name}}</td>
+                        </tr>
+                        <tr>
+                            <th class="bg-light">Product Price</th>
+                            <td> &#8377 {{product.product_price}}</td>
+                        </tr>
+                        <tr>
+                            <th class="bg-light">Product Qunatity</th>
+                            <td>{{product.product_quant}}</td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="card-footer text-center">
+                    <a href="{%url 'prodlist'%}"><i class="fa fa-arrow-left btn btn-info">Back</i></a>
+                    <a href="{%url 'edit' product.id%}"><i class="fa fa-pencil btn btn-warning">Back</i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{%endblock%}

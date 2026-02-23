@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Material Design Bootstrap -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.4.1/css/mdb.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome-animation/0.0.10/font-awesome-animation.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+<body>
+    <div class="container">
+        {% if emp_list %}
+            <p class="h1 text-center text-success">Records Found</p>
+            <table class="table table-bordered table-striped table-hover text-center">
+                <thead>
+                    <tr class="bg-primary text-white">
+                        <th>Employee ID</th>
+                        <th>Employee Name</th>
+                        <th>Employee Designation</th>
+                        <th>Employee Salary</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {%for emp in emp_list%}
+                    <tr>
+                        <td>{{emp.emp_id}}</td>
+                        <td>{{emp.name}}</td>
+                        <td>{{emp.designation}}</td>
+                        <td>{{emp.salary}}</td>
+                    </tr>
+                    {%endfor%}
+                </tbody>
+
+            </table>
+        {% else%}
+            <p class="h1 text-danger text-center">Records Not Found</p>
+        {%endif%}
+    </div>
+</body>
+</html>
+

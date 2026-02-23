@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.20.0/css/mdb.min.css">
+</head>
+<body>
+    <nav class="navbar navbar-dark bg-dark navbar-expand-sm">
+        <a href="{% url 'home' %}" class="navbar-brand">Home</a>
+        <div class="container">
+                <ul class="nav">
+                <li class="nav-item"><a href="{%url 'login'%}" class="nav-link text-white">Login</a></li>
+                <li class="nav-item"><a href="{%url 'about1' %}" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="{%url 'register1' %}" class="nav-link">Register</a></li>
+                <li class="nav-item"><a href="{%url 'contact'%}" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+
+
+    </nav>
+
+
+
+    {% block body_block%}
+     
+
+    {% endblock%}
+    
+</body>
+</html>

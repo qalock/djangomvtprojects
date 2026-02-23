@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+{%extends 'myapp/base.html'%}
+
+{%block body_block%}
+
+{% if messages %}
+<div class="container mt-3">
+    {% for message in messages %}
+        <div class="alert alert-success alert-dismissible fade show">
+            {{ message }}
+        </div>
+    {% endfor %}
+</div>
+{% endif %}
+<div class="contianer">
+    <form action="" method="post">
+        {%csrf_token%}
+        <div class="row justify-content-center"></div>
+            <div class="col-md-6">
+               <div class="card">
+                     <div class="card-header bg-info text-white">
+                    <h4 class="text-center">Register Here</h4>
+                </div>
+                <div class="card-body">
+                    {{form.as_p}}
+                    <button class="btn btn-outline-info">ADD</button>
+                </div>
+               </div>
+            </div>
+    </form>
+
+</div>
+<script>
+    setTimeout(function () {
+        let alert = document.querySelector('.alert');
+        if (alert) {
+            alert.remove();
+        }
+    }, 3000);
+</script>
+{%endblock%}

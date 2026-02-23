@@ -1,0 +1,32 @@
+{
+  "employees": [
+    {
+      "id": "11",
+      "name": "jiyaaaa",
+      "salary": "454845",
+      "email": "jiya@gmail.com",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVjiARIVEgxW6TooK-vQBgX4VqlXGOS2xalw&s"
+    },
+    {
+      "id": "e6f1",
+      "name": "dove",
+      "salary": "87989",
+      "email": "q@gmail.com",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0fYsFULhLijjbccF497G_dfgIJ5MdWwnj4w&s"
+    },
+    {
+      "id": "cd6b",
+      "name": "ba",
+      "salary": "21342",
+      "email": "q@gmail.com",
+      "image": "https://easydrawingguides.com/wp-content/uploads/2024/05/how-to-draw-zoro-from-one-piece-featured-image-1200.png"
+    },
+    {
+      "id": "0c46",
+      "name": "dove",
+      "salary": "87799",
+      "email": "kiran@gmail.com",
+      "image": "https://yt3.googleusercontent.com/jGUgF7FMa7oIv3c_rNghSiPux7pRYgJqIjlDNEAAB_Evh3P0ZAIKmhNJ2EyglKA0t6dGdbdTfb0=s900-c-k-c0x00ffffff-no-rj"
+    }
+  ]
+}

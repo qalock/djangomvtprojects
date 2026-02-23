@@ -1,0 +1,30 @@
+{%extends 'userapp/base.html'%}
+
+{%block body%}
+<div class="container">
+    <section>
+        <p class="h1 text-center text-danger">HOME PAGE</p>
+        <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure velit nam unde ullam vel, culpa optio assumenda! Labore impedit repudiandae, aut earum incidunt dignissimos amet quos debitis unde sint ex molestiae quas dolor perferendis, ab aliquam distinctio temporibus dolorum ipsa!</p>
+        <div class="row mt-5">
+            <div class="col-md-5">
+                <a href="{%url 'register'%}" class="btn btn-warning float-left">Register</a>
+            </div>
+            <div class="col-md-7">
+                {% if  user.is_authenticated %}
+                    <p class="text-success float-left">Welcome {{ user.email }}</p>
+                    <form action="{% url 'logout' %}" method="post">
+                        {%csrf_token%}
+                        <button type="submit" class="btn btn-danger float-right">Logout</button>
+                    </form>
+                {%else%}
+                    <a href="{%url 'login'%}" class="btn btn-info float-right">Login</a>
+                {% endif %}
+                
+            </div>
+        </div>
+    </section>
+    <section>
+        
+    </section>
+</div>
+{%endblock%}

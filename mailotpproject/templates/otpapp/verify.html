@@ -1,0 +1,27 @@
+{% extends 'otpapp/base.html' %}
+
+{% block body_block %}
+
+<script>
+    alert("Your OTP is: {{ otp }}");
+</script>
+
+<div class="container mt-5">
+    <form method="POST" action="{% url 'verify' %}">
+        {% csrf_token %}
+        <div class="row justify-content-center">
+            <div class="col-md-5">
+                <div class="card">
+                    
+                    <div class="card-body">
+                        <input type="hidden" name="email" value="{{ email }}">
+                        <input type="text" name="otp" placeholder="Enter OTP" required>
+                        <button class="btn btn-info">Verify</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+{% endblock %}

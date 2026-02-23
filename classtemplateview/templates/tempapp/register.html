@@ -1,0 +1,22 @@
+{%extends 'tempapp/base.html'%}
+
+{%block body%}
+<div class="container mt-5">
+    <form action="" method="post">
+    {%csrf_token%}
+    <div class="row justify-content-center">
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header bg-info text-white">
+                    <h1 class="text-center">Add Details</h1>
+                </div>
+                <div class="card-body">
+                    {{form.as_p}}
+                    <button class="btn btn-outline-info">ADD</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+</div>
+{%endblock%}

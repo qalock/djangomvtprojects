@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+{% extends 'empapp/base.html' %}
+
+{% block body_block%}
+
+<div class="container">
+    <p class="h1 text-center text-secondary">
+        Show Page
+    </p>
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    <h3 class="text-center">Employee Details</h3>
+                </div>
+                <div class="card-body">
+                    <table class="table table-bordered table-striped">
+                        <tr>
+                        <th class="bg-white">Employee ID</th>
+                        <td>{{employee.EmployeeID}}</td>
+                    </tr>
+                    <tr>
+                        <th class="bg-white">Employee Name</th>
+                        <td>{{employee.EmployeeName}}</td>
+                    </tr>
+                    <tr>
+                        <th class="bg-white">Employee Salary</th>
+                        <td> &#8377 {{employee.EmployeeSalary}}</td>
+                    </tr>
+                    <tr>
+                        <th class="bg-white">Employee Department</th>
+                        <td>{{employee.EmployeeDept}}</td>
+                    </tr>
+                    </table>
+                </div>
+                <div class="card-footer text-center">
+                    <a href="{%url 'emplist'%}"><i class="fa fa-arrow-left btn btn-outline-primary">Back</i></a>
+                    <a href="{%url 'edit' employee.id%}"><i class="fa fa-pencil btn btn-outline-warning">Edit</i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{%endblock%}

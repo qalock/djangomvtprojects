@@ -1,0 +1,23 @@
+{%extends 'myapp/base.html'%}
+
+{%block body%}
+<div class="container">
+    <form action="" method="post">
+        {%csrf_token%}
+        <div class="row">
+            <div class="col-md-5">
+                <div class="card">
+                    <div class="card-header bg-warning text-white">
+                        <h1 class="text-center">Edit Page</h1>
+                    </div>
+                    <div class="card-body">
+                        {{form.as_p}}
+                        <button class="btn btn-outline-warning">Edit</button>
+                        <a href="/emplist" class="btn btn-outline-info">Back</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+{%endblock%}

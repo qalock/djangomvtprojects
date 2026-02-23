@@ -1,0 +1,16 @@
+{%extends 'userapp/base.html'%}
+
+{%block body%}
+<div class="container">
+    <h2>Admin Dashboard</h2>
+
+<p>Welcome : {{ user.username }}</p>
+
+<!-- <a href="{% url 'home' %}">Back to Home</a> -->
+<br>
+<form action="{% url 'logout' %}" method="post">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger">Logout</button>
+</form>
+</div>
+{%endblock%}

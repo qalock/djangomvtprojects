@@ -1,0 +1,36 @@
+{%extends 'tempapp/base.html'%}
+
+{%block body%}
+<form action="" method="post">
+    {%csrf_token%}
+    <div class="row justify-content-center">
+        <div class="col-md-5">
+            <div class="card">
+                <div class="card-header bg-danger text-white">
+                    <h1 class="text-center">Delete Data</h1>
+                </div>
+                <div class="card-body">
+                    <table class="table table-bordered table-striped table-hover">
+                        <tr>
+                            <th class="bg-light">Student ID</th>
+                            <td>{{student.StudentId}}</td>
+                        </tr>
+                        <tr>
+                            <th class="bg-light">Student name</th>
+                            <td>{{student.StudentName}}</td>
+                        </tr>
+                        <tr>
+                            <th class="bg-light">Student Fees</th>
+                            <td>{{student.StudentFees}}</td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="card-footer text-center">
+                    <button class="btn btn-outline-danger">Delete</button>
+                    <a href="{%url 'list'%}" class="btn btn-info">HOME</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+{%endblock%}

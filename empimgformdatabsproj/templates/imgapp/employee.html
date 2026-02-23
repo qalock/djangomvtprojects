@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+
+{%extends 'imgapp/base.html'%}
+{%load static%}
+
+{%block body_block%}
+<div class="container">
+    <section>
+        <a href="{%url 'add'%}" class="bnt btn-danger">ADD</a>
+    </section>
+    <section>
+        {%if emplist%}
+            <table class="table table-bordered table-striped table-hover text-center">
+                <thead class="bg-danger text-white">
+                    <tr>
+                        <th>ID</th>
+                        <th>Image</th>
+                        <th>Name</th>
+                        <th>Salary</th>
+                        <th>Location</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {%for emp in emplist%}
+                        <tr>
+                            <td>{{emp.id}}</td>
+                            <td>
+                                {%if emp.image%}
+                                    <img src="{{emp.image.url}}" alt="" height="150">
+                                {%else%}
+                                    <img src="/static/images/default-placeholder.png" alt="no image available">
+                                {%endif%}
+                            </td>
+                            <td>{{emp.name}}</td>
+                            <td>{{emp.salary}}</td>
+                            <td>{{emp.location}}</td>
+                        </tr>
+                    {%endfor%}
+                </tbody>
+
+            </table>
+        {%else%}
+            <p class="h3 text-center">Record Not Found</p>
+        {%endif%}
+    </section>
+</div>
+
+{%endblock%}

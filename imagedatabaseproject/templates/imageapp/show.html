@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+
+{%extends 'imageapp/base.html'%}
+
+{%block body_block%}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header bg-danger text-white">
+                    <h3 class="text-center">Product Details</h3>
+                </div>
+                <div class="card-body">
+                    <table class="table table-bordered table-striped table-hover">
+                        <tr>
+                        <th class="bg-light">Product ID</th>
+                        <td>{{product.id}}</td>
+                    </tr>
+                    <tr>
+                        <th class="bg-light">Product Name</th>
+                        <td>{{product.productname}}</td>
+                    </tr>
+                    <tr>
+                        <th class="bg-light">Product Iamge</th>
+                        <td>
+                            {%if product.productimage%}
+                                <img src="{{product.productimage.url}}" alt="" height="200" width="250">
+                            {%else%}
+                                <img src="" alt="No image available">
+                            {%endif%}
+                        </td>
+                    </tr>
+                     <tr>
+                        <th class="bg-light">Product Price</th>
+                        <td>{{product.productprice}}</td>
+                    </tr>
+                     <tr>
+                        <th class="bg-light">Product Qunatity</th>
+                        <td>{{product.productquantity}}</td>
+                    </tr>
+                    </table>
+
+                </div>
+                <div class="card-footer text-center">
+                    <a href="{%url 'prodlist'%}"><i class="fa fa-arrow-left btn btn-outline-info">Back</i></a>
+                    <a href="{%url 'edit' product.id%}"><i class="fa fa-pencil btn btn-outline-warning">Edit</i></a>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+{%endblock%}

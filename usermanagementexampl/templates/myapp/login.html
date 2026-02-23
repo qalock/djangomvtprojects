@@ -1,0 +1,39 @@
+{%extends 'myapp/base.html'%}
+
+{%block body%}
+<div class="container">
+    {%if user.is_authenticated%}
+        <p class="h4 text-success text-center">
+            You are logged in as {{ user.email }}
+        </p>
+        <form action="{% url 'logout' %}" method="post">
+            {%csrf_token%}
+            <button type="submit" class="btn btn-danger float-right">Logout</button>
+        </form>
+        
+
+        <a href="{% url 'home' %}" class="btn btn-secondary ms-2 float-left">
+            Go to Home
+        </a>
+    {%else%}
+        <form action="" method="post">
+            {%csrf_token%}
+            <div class="row justify-content-center">
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-header bg-warning text-white">
+                            <h1 class="text-center">LoginPage</h1>
+                        </div>
+                        <div class="card-body">
+                            {{form.as_p}}
+                            <button type="submit" class="btn btn-outline-warning">Login</button>
+                            <a href="{%url 'home'%}" class="btn btn-outline-info">HOME</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </form>
+    {%endif%}
+</div>
+{%endblock%}

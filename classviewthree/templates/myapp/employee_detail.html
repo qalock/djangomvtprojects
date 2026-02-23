@@ -1,0 +1,40 @@
+{%extends 'myapp/base.html'%}
+
+{%block body%}
+    <div class="container">
+        <p class="h1 text-center text-secondary">Employee Dtail Page</p>
+        <div class="row justify-content-center">
+            <div class="col-md-5">
+                <div class="card">
+                    <div class="card-header bg-danger text-white">
+                        <h1 class="text-center">Employee Details</h1>
+                    </div>
+                    <div class="card-body">
+                        <table class="table table-bordered table-striped table-hover">
+                            <tr>
+                                <th class="bg-light">Employee Id</th>
+                                <td>{{employee.EmpId}}</td>
+                            </tr>
+                            <tr>
+                                <th class="bg-light">Employee Name</th>
+                                <td>{{employee.EmpName}}</td>
+                            </tr>
+                            <tr>
+                                <th class="bg-light">Employee Salary</th>
+                                <td> &#8377 {{employee.EmpSal}}</td>
+                            </tr>
+                            
+
+                        </table>
+                    </div>
+                    <div class="card-footer">
+                        <tr>
+                            <a href="/"><i class="fa fa-arrow-left btn btn-warning">Back</i></a>
+                            <a href="/edit/{{employee.id}}"><i class="fa fa-pencil btn btn-danger">Edit</i></a>
+                        </tr>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{%endblock%}

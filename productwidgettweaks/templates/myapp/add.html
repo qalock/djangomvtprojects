@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+{%extends 'myapp/base.html'%}
+
+{%block body_block%}
+<div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-5">
+                <div class="card">
+                    <div class="card-header bg-info text-white">
+                        <h3 class="text-center">Add Details</h3>
+                    </div>
+                    <div class="card-body">
+                        <form action="" method="post">
+                            {%csrf_token%}
+                            {%load widget_tweaks%}
+                            <div class="form-group">
+                                {{form.product_id|add_class:"form-control"|attr:"placeholder:Enter ProductID"}}                 
+                            </div>
+                            <div class="form-group">
+                                {{form.product_name|add_class:"form-control"|attr:"placeholder:Enter Product Name"}}
+                            </div>
+                            <div class="form-group">
+                                {{form.product_price|add_class:"form-control"|attr:"placeholder:Enter Product Price"}}
+                            </div>
+                            <div class="form-group">
+                                {{form.product_quant|add_class:"form-control"|attr:"placeholder:Enter Product Quantity"}}
+                            </div>
+                            
+                            <!-- {{form.as_p}} -->
+                            <button class="btn btn-outline-info">ADD</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+</div>
+{%endblock%}

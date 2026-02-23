@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+
+{% extends 'empapp/base.html' %}
+
+{% block body_block%}
+
+<div class="container">
+    <p class="h1 text-center text-secondary">
+        Employees Page
+    </p>
+    <section>
+        <p class="lead">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Illum, odio reprehenderit? Debitis nisi excepturi accusamus. Reprehenderit, voluptatibus. Suscipit, nulla placeat.  Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nobis asperiores impedit rem quaerat nulla assumenda perferendis reiciendis commodi error facere iure qui voluptatem quas, sunt at quos, laudantium voluptas natus neque explicabo. Consequatur accusamus hic iure alias facilis assumenda nostrum. </p>
+        <div class="row">
+            <div class="col-md-8">
+                <a href="{%url 'add'%}" class="btn btn-outline-amber rounded-pill">ADD</a>
+                <a href="{%url 'emplist'%}" class="btn btn-outline-amber">HOME</a>
+            </div>
+            <div class="col-md-4">
+                <form action="" method="get">
+                    <input type="search" name="q" value="{{request.GET.q}}" placeholder="search by id or name" class="float-right form-control">
+                </form>
+            </div>
+        </div>
+    </section>
+    <section>
+        {% if emplist%}
+            <p class="h1 text-center">Record Found</p>
+            <table class="table table-bordered table-striped table-hover text-center">
+                <thead class="bg-info text-white">
+                    <tr>
+                        <th>EmployeeID</th>
+                        <th>EmployeeName</th>
+                        <th>EmployeeSalary</th>
+                        <th>EmployeeDept</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for emp in emplist%}
+                        <tr>
+                            <td>{{emp.EmployeeID}}</td>
+                            <td>{{emp.EmployeeName}}</td>
+                            <td>{{emp.EmployeeSalary}}</td>
+                            <td>{{emp.EmployeeDept}}</td>
+                            <td>
+                                <a href="{%url 'show' emp.id%}"><i class="fa fa-eye text-success mr-3"></i></a>
+                                <a href="{%url 'edit' emp.id%}"><i class="fa fa-pencil text-info mr-3"></i></a>
+                                <a href="{%url 'delete' emp.id%}"><i class="fa fa-trash text-danger"></i></a>
+                            </td>
+                        </tr>
+                    {%endfor%}
+                </tbody>
+
+            </table>
+
+
+
+
+
+        {%else%}
+            <p class="h1 text-center">Record Not Found</p>
+        {%endif%}
+    </section>
+</div>
+
+{%endblock%}

@@ -1,0 +1,56 @@
+{%extends 'myapp/base.html'%}
+{%load humanize%}
+
+{%block body%}
+<div class="container">
+    <p class="h1 text-center text-primary">Product Page</p>
+    <section>
+    <p class="lead">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nihil labore officia voluptas accusantium odit, dignissimos distinctio est, exercitationem laborum, provident numquam fugiat doloremque incidunt deleniti obcaecati. Odit deserunt soluta provident id deleniti nihil dolores? Saepe ad in quod eligendi totam.</p>
+    <div class="row">
+        <div class="col-md-8">
+            <a href="/create" class="btn btn-primary">ADD</a>
+        </div>
+        <div class="col-md-4">
+            <input type="search" name="" id="" placeholder="Search">
+        </div>
+    </div>
+</section>
+<section class="mt-3">
+    {%if product_list%}
+        <table class="table table-bordered table-striped table-hover text-center">
+            <thead class="bg-primary text-white">
+                <tr>
+                    <th>Product ID</th>
+                    <th>Product Name</th>
+                    <th>Product Image</th>
+                    <th>Product Price</th>
+                    <th>Product Quantity</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {%for p in product_list%}
+                <tr>
+                    <td>{{p.ProductId}}</td>
+                    <td>{{p.ProductName}}</td>
+                    <td>
+                        <img src={{p.ProdcutImage}} alt="" height="80px">
+                    </td>
+                    <td> &#8377 {{p.ProductPrice|intcomma}}</td>
+                    <td>{{p.ProductQuant}}</td>
+                    <td>
+                        <a href="/{{p.id}}" class="fa fa-eye mr-3 text-success"></a>
+                        <a href="/edit/{{p.id}}" class="fa fa-pencil mr-3 text-primary"></a>
+                        <a href="/delete/{{p.id}}" class="fa fa-trash mr-3 text-danger"></a>
+                    </td>
+                </tr>
+                {%endfor%}
+            </tbody>
+        </table>
+    {%else%}
+    <p class="h1 text-center text-danger">Record not Found</p>
+    {%endif%}
+</section>
+</div>
+
+{%endblock%}

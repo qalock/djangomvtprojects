@@ -1,0 +1,39 @@
+{%extends 'myapp/base.html'%}
+
+{%block body%}
+<div class="container">
+<form action="" method="post">
+    {%csrf_token%}
+    <div class="row justify-content-center">
+        <div class="col-md-5">
+            <div class="card">
+                <div class="card-header bg-danger text-white">
+                    <h1 class="text-center">Delete Details</h1>
+                </div>
+                <div class="card-body">
+                    <table class="table table-bordered table-striped table-hover">
+                        <tr>
+                            <th class="bg-light">Stduent ID</th>
+                            <td>{{student.StudentId}}</td>
+                        </tr>
+                        <tr>
+                            <th class="bg-light">Stduent Name</th>
+                            <td>{{student.StudentName}}</td>
+                        </tr>
+                        <tr>
+                            <th class="bg-light">Stduent Marks</th>
+                            <td>{{student.StudentMarks}}</td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="card-footer text-center">
+                    <button type="submit" class="btn btn-outline-danger">Delete</button>
+                    <a href="/" class="btn btn-outline-info">HOME</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+    
+</div>
+{%endblock%}

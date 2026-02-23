@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+
+{%extends 'myapp/base.html'%}
+
+
+{%block body_block%}
+<div class="container">
+    <section class="mt-5">
+        <p class="h1 text-center">Employee Details</p>
+        <div class="row">
+            <div class="col-md-8">
+                <a href="{%url 'add'%}" class="btn btn-danger">ADD</a>
+                <a href="{%url 'emplist'%}" class="btn btn-danger">HOME</a>
+            </div>
+            <div class="col-md-4">
+                <form action="" method="get">
+                    <input type="search" name="q" value="{{request.GET.q}}" placeholder="Search by ID or Name" class="form-control float-right">
+                </form>
+            </div>
+        </div>
+    </section>
+    <section class="mt-4">
+        {%if emplist%}
+            <table class="table table-bordered table-striped table-hover text-center">
+                <thead class="bg-danger text-white">
+                    <tr>
+                        <th>Employee ID</th>
+                        <th>Employee Name</th>
+                        <th>Employee Salary</th>
+                        <th>Employee Department</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {%for emp in emplist%}
+                        <tr>
+                            <td>{{emp.id}}</td>
+                            <td>{{emp.Employeename}}</td>
+                            <td>{{emp.Employeesalary}}</td>
+                            <td>{{emp.Employeedept}}</td>
+                            <td>
+                                <a href="{%url 'show' emp.id%}"><i class="fa fa-eye text-success mr-3"></i></a>
+                                <a href="{%url 'edit' emp.id%}"><i class="fa fa-pencil text-info mr-3"></i></a>
+                                <a href="{%url 'delete' emp.id%}"><i class="fa fa-trash text-danger"></i></a>
+                            </td>
+                        </tr>
+                    {%endfor%}
+                </tbody>
+
+            </table>
+
+        {%else%}
+            <p class="h2 text-center text-warning">Record Not Found</p>
+        {%endif%}
+    </section>
+</div>
+
+{%endblock%}

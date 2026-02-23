@@ -1,0 +1,21 @@
+{%extends 'myapp/base.html'%}
+
+{%block body%}
+<form action="" method="post">
+    {%csrf_token%}
+    <div class="row justify-content-center">
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header bg-warning text-white">
+                    <h1 class="text-center">Add Product</h1>
+                </div>
+                <div class="card-body">
+                    {{form.as_p}}
+                    <button class="btn btn-outline-warning">ADD</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+{%endblock%}

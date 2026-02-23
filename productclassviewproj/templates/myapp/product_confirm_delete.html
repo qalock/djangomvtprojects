@@ -1,0 +1,48 @@
+{%extends 'myapp/base.html'%}
+
+{%block body%}
+<form action="" method="post">
+    {%csrf_token%}
+    <div class="row justify-content-center">
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header bg-danger text-white">
+                    <h1 class="text-center">Delete Record</h1>
+                </div>
+                <div class="card-body">
+                    <table class="table table-bordered table-striped table-hover">
+                        <tr>
+                            <th class="bg-light">Product ID</th>
+                            <td>{{product.ProductId}}</td>
+                        </tr>
+                        <tr>
+                            <th class="bg-light">Product Name</th>
+                            <td>{{product.ProductName}}</td>
+                        </tr>
+                        <tr>
+                            <th class="bg-light">Product Image</th>
+                            <td>
+                                <img src={{product.ProdcutImage}} alt="" height="150px">
+                            </td>
+                        </tr>
+                        <tr>
+                            <th class="bg-light">Product Price</th>
+                            <td> &#8377 {{product.ProductPrice}}</td>
+                        </tr>
+                        <tr>
+                            <th class="bg-light">Product Quantity</th>
+                            <td>{{product.ProductQuant}}</td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="card-footer text-center">
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                    <a href="/" class="btn btn-info">Home</a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+{%endblock%}

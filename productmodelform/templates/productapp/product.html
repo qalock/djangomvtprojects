@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+
+{%extends 'productapp/base.html'%}
+
+{%block body_block%}
+<div class="container">
+    <p class="h1 text-center">PRODUCTS PAGE</p>
+    <section>
+        <div class="row">
+            <div class="col-md-8">
+                <a href="{%url 'add'%}" class="btn btn-primary ">ADD</a>
+                <a href="{%url 'productlist'%}" class="btn btn-primary m-3 ">HOME</a>
+            </div>
+            <div class="col-md-4">
+                <form action="" method="get">
+                    <input type="search" name="q" value="{{request.GET.q}}" placeholder="Search By ID or Name And Press Enter button" class="float-right form-control">
+                </form>
+            </div>
+        </div>
+    </section>
+    <section>
+        {%if productlist%}
+            <table class="table table-bordered table-striped table-hover text-center">
+                <thead class="bg-primary text-white">
+                    <tr>
+                        <th>Product ID</th>
+                        <th>Product Name</th>
+                        <th>Product Image</th>
+                        <th>Product Price</th>
+                        <th>Product Quantity</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {%for prod in productlist%}
+                    <tr>
+                        <td>{{prod.ProductId}}</td>
+                        <td>{{prod.ProductName}}</td>
+                        <td>
+                            <img src={{prod.ProductImage}} alt="" height="80">
+                        </td>
+                        <td> &#8377 {{prod.ProductPrice}}</td>
+                        <td>{{prod.ProductQuantity}}</td>
+                        <td>
+                            <a href="{%url 'show' prod.id%}"><i class="fa fa-eye mr-3 text-success"></i></a>
+                            <a href="{%url 'edit' prod.id%}"><i class="fa fa-pencil mr-3 text-info"></i></a>
+                            <a href="{%url 'delete' prod.id%}"><i class="fa fa-trash text-danger"></i></a>
+                        </td>
+                    </tr>
+                    {%endfor%}
+                </tbody>
+
+            </table>
+        {%else%}
+            <p class="h1 text-center">Record Not Found</p>
+        {%endif%}
+    </section>
+</div>
+{%endblock%}

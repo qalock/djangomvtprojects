@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+
+{%extends 'stuapp/base.html'%}
+
+{%block body_block%}
+
+<div class="container">
+    <section>
+        <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut molestiae nostrum vitae hic dolores? Possimus incidunt nobis dicta odit ipsum quod natus error minus ut eos officia porro laudantium obcaecati repellendus sit, dolorem magnam ab consectetur, vitae repellat et ipsa?</p>
+        <div class="row">
+            <div class="col-md-8">
+                <a href="{%url 'add'%}" class="btn btn-outline-info">ADD</a>
+                <a href="{%url 'stulist'%}" class="btn btn-outline-info">HOME</a>
+            </div>
+            <div class="col-md-4">
+                <form action="" method="get">
+                    <input type="search" name="q" value="{{request.GET.q}}" class="form-control float-right" placeholder="Search By ID OR NAME">
+                </form>
+            </div>
+        </div>
+    </section>
+    <section>
+        {%if stulist%}
+            <table class="table table-bordered table-striped table-hover text-center">
+                <thead class="bg-info text-white">
+                    <tr>
+                        <th>Student ID</th>
+                        <th>Student Name</th>
+                        <th>Student Age</th>
+                        <th>Student Email</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {%for stu in stulist%}
+                    <tr>
+                        <td>{{stu.StudentId}}</td>
+                        <td>{{stu.StudentName}}</td>
+                        <td>{{stu.StudentAge}}</td>
+                        <td>{{stu.StudentEmail}}</td>
+                        <td>
+                            <a href="{%url 'show' stu.id%}"><i class="btn btn-info">View</i></a>
+                            <a href="{%url 'edit' stu.id%}"><i class="btn btn-warning">Edit</i></a>
+                            <a href="{%url 'delete' stu.id%}"><i class="btn btn-danger">Delete</i></a>
+                        </td>
+                    </tr>
+                    {%endfor%}
+                </tbody>
+            </table>
+        {%else%}
+            <p class="h1 text-center">Record Not Found</p>
+        {%endif%}
+    </section>
+    
+</div>
+
+{%endblock%}

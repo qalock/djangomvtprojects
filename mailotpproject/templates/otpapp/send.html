@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+
+{%extends 'otpapp/base.html'%}
+
+{%block body_block%}
+
+<div class="container mt-5">
+    <form method="POST">
+        {% csrf_token %}
+        <div class="row justify-content-center">
+            <div class="col-md-5">
+                <div class="card">
+                    <div class="card-header bg-info text-white">
+                        <h2 class="text-center">Mail Verification</h2>
+                    </div>
+                    <div class="card-body">
+                        <input type="email" name="email" placeholder="Enter Email" required>
+                        <button type="submit" class="btn btn-info">Send OTP</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+{%endblock%}

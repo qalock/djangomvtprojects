@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+
+{%extends 'stuapp/base.html'%}
+
+{%block body_block%}
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header bg-success text-white">
+                    <h3 class="text-center">Student Details</h3>
+                </div>
+                <div class="card-body">
+                    <table class="table table-bordered table-striped">
+                        <tr>
+                            <th class="bg-light">Student ID</th>
+                            <td>{{student.StudentId}}</td>
+                        </tr>
+                        <tr>
+                            <th class="bg-light">Student Name</th>
+                            <td>{{student.StudentName}}</td>
+                        </tr>
+                        <tr>
+                            <th class="bg-light">Student Age</th>
+                            <td>{{student.StudentAge}}</td>
+                        </tr>
+                        <tr>
+                            <th class="bg-light">Student Email</th>
+                            <td>{{student.StudentEmail}}</td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="card-footer text-center">
+                    <a href="{%url 'stulist'%}"><i class="fa fa-arrow-left btn btn-outline-success">Back</i></a>
+                    <a href="{%url 'edit' student.id%}"><i class="fa fa-pencil btn btn-outline-warning">Edit</i></a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    
+</div>
+
+{%endblock%}

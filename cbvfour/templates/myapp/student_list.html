@@ -1,0 +1,48 @@
+{%extends 'myapp/base.html'%}
+
+{%block body%}
+<div class="container">
+    <section>
+        <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos earum distinctio sit possimus laboriosam quo voluptate quibusdam ab dolorum! Sapiente similique labore voluptatem inventore, commodi itaque corporis qui incidunt sequi vel nam ducimus officiis quis earum explicabo aspernatur consequuntur modi.</p>
+        <div class="row">
+            <div class="col-md-8">
+                <a href="create/" class="btn btn-primary">ADD</a>
+            </div>
+            <div class="col-md-4">
+                <input type="search" name="" id="" placeholder="Search">
+            </div>
+        </div>
+    </section>
+    <section>
+        {%if student_list%}
+            <table class="table table-bordered table-striped table-hover text-center">
+                <thead class="bg-info text-white">
+                    <tr>
+                        <th>Student ID</th>
+                        <th>Student Name</th>
+                        <th>Student Marks</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {%for s in student_list%}
+                    <tr>
+                        <td>{{s.StudentId}}</td>
+                        <td>{{s.StudentName}}</td>
+                        <td>{{s.StudentMarks}}</td>
+                        <td>
+                            <a href="{{s.id}}" class="fa fa-eye mr-3 text-info"></a>
+                            <a href="/edit/{{s.id}}" class="fa fa-pencil mr-3 text-warning"></a>
+                            <a href="/delete/{{s.id}}" class="fa fa-trash text-danger"></a>
+                        </td>
+                    </tr>
+                    {%endfor%}
+                </tbody>
+            </table>
+        {%else%}
+            <p class="h1 text-center text-danger">Record Not Found</p>
+        {%endif%}
+    </section>
+    
+</div>
+{%endblock%}

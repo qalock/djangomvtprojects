@@ -1,0 +1,37 @@
+
+<!DOCTYPE html>
+
+{% extends 'empapp/base.html' %}
+
+{% block body_block%}
+
+<div class="container">
+    <p class="h1 text-center text-secondary">
+        Register Page
+    </p>
+    <form action="" method="POST">
+
+        {% csrf_token%}
+
+        <div class="row">
+            <div class="col-md-5">
+                <div class="card">
+                    <div class="card-header bg-primary text-white text-center">
+                        <div class="h3">Register Here</div>
+                    </div>
+                    <div class="card-body">
+                        {{form.as_p}}
+                        <button class="btn btn-info text-white">Register</button>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        
+        
+    </form>
+
+
+</div>
+
+{%endblock%}
