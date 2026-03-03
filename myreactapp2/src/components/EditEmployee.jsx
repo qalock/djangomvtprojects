@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useParams} from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
 
 
 export default function EditEmployee(){
@@ -16,7 +17,7 @@ export default function EditEmployee(){
   const navigate=useNavigate();
 
   useEffect(()=>{
-    axios.get(`http://localhost:9000/employees/${id}`).then((res)=>{setEmployee(res.data)}).catch((error)=>{alert(error.message)})
+    axios.get(`http://localhost:9000/employees/${id}`).then((res)=>{setEmployee(res.data)}).catch((error)=>{toast.error(error.message)})
   },[id]);
 
   function updateInput(e){
@@ -29,8 +30,8 @@ export default function EditEmployee(){
   function safe(e){
     e.preventDefault();
     axios.put(`http://localhost:9000/employees/${employee.id}`,employee).then(()=>{
-      alert("Record Updated Successfully")
-      navigate('/')
+      toast.success("Record Updated Successfully");
+      navigate('/');
     }).catch((error)=>{alert(error.message)})
   }
 

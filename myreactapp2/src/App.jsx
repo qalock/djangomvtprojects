@@ -4,6 +4,7 @@ import EmployeeList from "./components/EmployeeList";
 import AddEmployee from "./components/AddEmployee";
 import FindEmployee from "./components/FindEmployee";
 import EditEmployee from "./components/EditEmployee";
+import {ToastContainer} from 'react-toastify'
 
 export default function App() {
   return (
@@ -16,6 +17,7 @@ export default function App() {
           <Route path="/edit/:id" element={ <EditEmployee/> } />
         </Routes>
       </BrowserRouter>
+      <ToastContainer position="top-center" autoClose={3000} theme="colored" />
     </React.Fragment>
   );
 }

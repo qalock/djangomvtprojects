@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from 'axios'
 import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
 
 export default function EmployeeList(){
     
@@ -16,14 +17,15 @@ export default function EmployeeList(){
         setEmployee(res.data);
       })
       .catch((error) => {
-        alert(error.message);
+        toast.error(error.message);
       });
   }
 
   function del(id){
-    axios.delete("http://localhost:9000/employees/"+id).then(()=>{alert("Record Deleted Successfully")
+    axios.delete("http://localhost:9000/employees/"+id).then(()=>{
+        toast.success("Record Deleted Successfully")
         getData()
-    }).catch((error)=>{alert(error.message)})
+    }).catch((error)=>{toast.error(error.message)})
   }
 
   return (

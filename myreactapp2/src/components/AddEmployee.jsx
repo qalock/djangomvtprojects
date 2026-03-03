@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link,useNavigate } from "react-router-dom";
+import {toast} from 'react-toastify';
 
 
 export default function AddEmployee(){
@@ -23,9 +24,10 @@ export default function AddEmployee(){
 
     function safe(e){
         e.preventDefault()
-        axios.post("http://localhost:9000/employees",employee).then(()=>{alert("Record Added successfully");
+        axios.post("http://localhost:9000/employees",employee).then(()=>{
+            toast.success("Record Added Successfully ✅");
             navigate('/')
-         }).catch((error)=>{alert(error.message)})
+         }).catch((error)=>{toast.error(error.message)})
     }
 
   return(

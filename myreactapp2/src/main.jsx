@@ -5,6 +5,7 @@ import App from './App.jsx'
 import 'mdbootstrap/css/mdb.css'
 import 'mdbootstrap/css/bootstrap.css'
 import '@fortawesome/fontawesome-free/css/all.css';
+import 'react-toastify/dist/ReactToastify.css';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
