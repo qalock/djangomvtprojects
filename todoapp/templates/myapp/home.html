@@ -1,0 +1,59 @@
+{%extends 'myapp/base.html'%}
+
+{%block body%}
+<p class="h1 text-center text-danger">Hello World</p>
+<div class="container">
+   <form action="" method="post">
+    {%csrf_token%}
+     <div class="row justify-content-center">
+        <div class="col-md-7">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    <h1 class="text-center">To Do</h1>
+                </div>
+                <div class="card-body">
+                    {{form.as_p}}
+                    <button class="btn btn-outline-primary">ADD</button>
+                </div>
+            </div>
+        </div>
+    </div>
+   </form>
+</div>
+<div class="container mt-5">
+    {%if data%}
+        <div class="row">
+            {%for d in data%}
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header bg-primary text-white">
+                        <h1 class="text-center">{{d.id}}</h1>
+                    </div>
+                    <div class="card-body">
+                        <table class="table table-bordered table-striped table-hover">
+                            <tr>
+                                <th class="bg-light">Header</th>
+                                <td>{{d.head}}</td>
+                            </tr>
+                            <tr>
+                                <th class="bg-light">Header</th>
+                                <td>{{d.des}}</td>
+                            </tr>
+                            <tr>
+                                <th class="bg-light">Header</th>
+                                <td>{{d.time}}</td>
+                            </tr>  
+                        </table>
+                    </div>
+                    <div class="card-footer text-center">
+                        <a href="{%url 'delete' d.id%}"><i class="fa fa-trash text-danger fa-2x"></i></a>
+                    </div>
+                </div>
+            </div>
+            {%endfor%}
+        </div>
+    {%else%}
+    <p class="h1 text-center text-danger">Record Not Found</p>
+    {%endif%}
+</div>
+{%endblock%}
